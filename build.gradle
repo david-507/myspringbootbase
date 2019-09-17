@@ -1,0 +1,40 @@
+plugins {
+	id 'org.springframework.boot' version '2.1.8.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+	id 'java'
+	id 'groovy'
+	id 'war'
+}
+
+group = 'org.dmace'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+configurations {
+	developmentOnly
+	runtimeClasspath {
+		extendsFrom developmentOnly
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.webjars:jquery:3.4.1'
+	implementation 'org.webjars:bootstrap:4.3.1'
+	implementation 'org.webjars:webjars-locator:0.37'
+	compile "org.codehaus.groovy:groovy-all:2.5.8"
+	compile 'org.postgresql:postgresql:42.2.6'
+	//compile 'com.zaxxer:HikariCP'
+
+
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testCompile "org.spockframework:spock-core:1.3-groovy-2.5"
+}
